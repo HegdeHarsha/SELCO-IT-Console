@@ -11,7 +11,7 @@ import { DUMMY_EMPLOYEES } from './constants';
 
 const App: React.FC = () => {
   const [employees, setEmployees] = useFirebaseStorage('employees', DUMMY_EMPLOYEES);
-  
+
   return (
     <HashRouter>
       <div className="min-h-screen bg-gray-50 text-text-main">
@@ -19,15 +19,24 @@ const App: React.FC = () => {
         <Header />
         <main className="p-4 sm:p-6 lg:p-8">
           <Routes>
-            <Route 
-              path="/" 
-              element={<AdminDashboard employees={employees} setEmployees={setEmployees} />} 
-            />
-            <Route 
-              path="/employee/:id" 
-              element={<EmployeeCardPage employees={employees} />} 
-            />
-          </Routes>
+  {/* Public employee route */}
+  <Route
+    path="employee/:id"
+    element={<EmployeeCardPage employees={employees} />}
+  />
+
+  {/* Redirect root to /admin */}
+  <Route path="/" element={<Navigate to="/admin" replace />} />
+
+  {/* Admin console under /admin */}
+  <Route
+    path="admin"
+    element={<AdminDashboard employees={employees} setEmployees={setEmployees} />}
+  />
+  
+  {/* Catch-all: unknown routes redirect to /employee/:id with a default or show 404 */}
+  <Route path="*" element={<Navigate to="/admin" replace />} />
+</Routes>
         </main>
       </div>
     </HashRouter>
