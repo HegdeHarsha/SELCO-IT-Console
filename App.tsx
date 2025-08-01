@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import AdminDashboard from './components/AdminDashboard';
 import EmployeeCardPage from './components/EmployeeCardPage';
-import Navigate from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import useFirebaseStorage from './useFirebaseStorage';
 import type { Employee } from './types';
 import Header from './components/Header';
