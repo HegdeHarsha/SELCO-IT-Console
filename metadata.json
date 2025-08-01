@@ -1,0 +1,5 @@
+{
+  "name": "SELCO India - Digital Business Cards",
+  "description": "An application for IT teams to create, manage, and share digital business cards for all SELCO India employees. Upload a CSV of employee data to generate unique, shareable contact cards with QR codes and an 'Add to Contacts' feature.",
+  "requestFramePermissions": []
+}
